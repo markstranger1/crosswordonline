@@ -1,0 +1,83 @@
+<div class="login">
+  <form
+    class="login__form"
+    (ngSubmit)="onSubmit(loginForm)"
+    #loginForm="ngForm"
+  >
+    <h2 class="login__title">Вход</h2>
+
+    <!-- Поле никнейма -->
+    <div class="login__field">
+      <label for="nickname" class="login__label">Никнейм</label>
+      <input
+        placeholder="Введите ваш никнейм"
+        type="text"
+        id="nickname"
+        name="nickname"
+        [(ngModel)]="user.nickname"
+        required
+        minlength="2"
+        #nickname="ngModel"
+        class="login__input"
+        [class.invalid]="nickname.invalid && (nickname.dirty || nickname.touched)"
+      />
+      <div
+        *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)"
+        class="login__field__error"
+      >
+        <p class="login__error" *ngIf="nickname.errors?.['required']">
+          Никнейм обязателен.
+        </p>
+        <p class="login__error" *ngIf="nickname.errors?.['minlength']">
+          Никнейм должен содержать хотя бы 2 символа.
+        </p>
+      </div>
+    </div>
+
+    <!-- Поле пароля -->
+    <div class="login__field">
+      <label for="password" class="login__label">Пароль</label>
+      <input
+        placeholder="Введите ваш пароль"
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="user.password"
+        required
+        minlength="6"
+        #password="ngModel"
+        class="login__input"
+        [class.invalid]="password.invalid && (password.dirty || password.touched)"
+      />
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="login__field__error"
+      >
+        <p class="login__error" *ngIf="password.errors?.['required']">
+          Пароль обязателен.
+        </p>
+        <p class="login__error" *ngIf="password.errors?.['minlength']">
+          Пароль должен быть не менее 6 символов.
+        </p>
+      </div>
+    </div>
+
+    <!-- Кнопка отправки -->
+    <button
+      type="submit"
+      class="login__button"
+      [disabled]="loginForm.invalid"
+    >
+      Войти
+    </button>
+
+    <!-- Ссылки -->
+    <div class="login__links">
+      <a routerLink="/auth/register" class="login__link">Зарегистрироваться</a>
+    </div>
+  </form>
+
+</div>
+
+<!-- Компонент уведомлений -->
+<app-notification></app-notification>

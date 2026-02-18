@@ -1,0 +1,140 @@
+<div class="system">
+  <div class="system__container">
+    <h1 class="system__title">О системе</h1>
+    <section class="system__section">
+      <h1>
+        Автоматизированная система составления и решения классических
+        кроссвордов
+      </h1>
+
+      <ul>
+        <li><a (click)="scrollToSection('introduction')">Введение</a></li>
+        <li>
+          <a (click)="scrollToSection('Working_with_the_system')"
+            >Работа с системой</a
+          >
+          <ul>
+            <li>
+              <a
+                (click)="
+                  scrollToSection(
+                    'Working_with_the_system_in_the_administrator_mode'
+                  )
+                "
+              >
+                Работа с системой в режиме администратора
+              </a>
+              <ul>
+                <li>
+                  <a (click)="scrollToSection('Log_in_to_the_system')"
+                    >Вход в систему (авторизация)</a
+                  >
+                </li>
+                <li>
+                  <a (click)="scrollToSection('View_all_the_crosswords')"
+                    >Просмотр всех кроссвордов</a
+                  >
+                </li>
+                <li>
+                  <a (click)="scrollToSection('Creating_a_new_crossword')"
+                    >Создание нового кроссворда</a
+                  >
+                  <ul>
+                    <li>
+                      <a
+                        (click)="
+                          scrollToSection('Automatic_crossword_completion')
+                        "
+                        >Автоматическое заполнение кроссворда</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        (click)="
+                          scrollToSection('Manually_completing_a_crossword')
+                        "
+                        >Ручное заполнение кроссворда</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a (click)="scrollToSection('Changing_the_crossword')"
+                    >Изменение кроссворда</a
+                  >
+                </li>
+                <li>
+                  <a
+                    (click)="
+                      scrollToSection('View_all_dictionaries_of_concepts')
+                    "
+                    >Просмотр всех словарей понятий</a
+                  >
+                </li>
+                <li>
+                  <a
+                    (click)="
+                      scrollToSection('Adding_a_new_vocabulary_of_concepts')
+                    "
+                    >Добавление нового словаря понятий</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                (click)="
+                  scrollToSection('Working_with_the_system_in_player_mode')
+                "
+                >Работа с системой в режиме игрока</a
+              >
+              <ul>
+                <li>
+                  <a (click)="scrollToSection('Login_for_the_player')"
+                    >Вход в систему (авторизация)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    (click)="
+                      scrollToSection('View_all_the_crosswords_for_player')
+                    "
+                    >Просмотр всех кроссвордов</a
+                  >
+                </li>
+                <li>
+                  <a
+                    (click)="
+                      scrollToSection(
+                        'Viewing_crosswords_in_the_player_library'
+                      )
+                    "
+                  >
+                    Просмотр кроссвордов в библиотеке игрока
+                  </a>
+                </li>
+                <li>
+                  <a (click)="scrollToSection('Solving_the_crossword')"
+                    >Решение кроссворда</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Контент по разделам -->
+      <div
+        *ngFor="let section of sections"
+        [id]="section.id"
+        class="content-section"
+      >
+        <h1>{{section.header}}</h1>
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.content }}</p>
+        <img class="image_content" alt="" *ngIf="section.image" [src]="section.image" [alt]="section.title" />
+      </div>
+    </section>
+  </div>
+</div>

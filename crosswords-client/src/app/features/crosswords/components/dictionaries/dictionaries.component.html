@@ -1,0 +1,34 @@
+<div class="dictionary">
+  <div class="dictionary__container">
+    <h2 class="dictionary__title">Загрузить словарь</h2>
+    <input 
+      type="text" 
+      placeholder="Название словаря" 
+      [(ngModel)]="dictionaryName" 
+      class="dictionary__input"
+    />
+    <div 
+      class="dictionary__dropzone" 
+      (dragover)="onDragOver($event)" 
+      (drop)="onDrop($event)"
+    >
+      Перетащите файл сюда
+    </div>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+    <button (click)="openFileChooser()" class="dictionary__button">
+      Выбрать файл
+    </button>
+    <div *ngIf="file" class="dictionary__file-info">
+      <p>Выбран файл: {{ file.name }}</p>
+    </div>
+    <button 
+      (click)="uploadFile()" 
+      class="dictionary__button" 
+      [disabled]="!file || !dictionaryName"
+    >
+      Загрузить
+    </button>
+  </div>
+</div>
+
+<app-notification></app-notification>

@@ -1,0 +1,67 @@
+# Node.js modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Output directories
+uploads/
+dist/
+build/
+out/
+.next/
+serverless/
+
+# Coverage directories
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Debug files
+*.pid
+*.seed
+*.tgz
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+
+# ESLint and stylelint cache
+.eslintcache
+.stylelintcache
+
+# REPL history
+.node_repl_history
+
+# Miscellaneous
+.npm
+.cache/
+.pids
+*.pmlog
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX
